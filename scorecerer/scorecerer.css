@@ -1,0 +1,178 @@
+/* Scorecerer pages. Palette and type mirror the app (app/app.css in the scorecerer repo). */
+:root {
+  color-scheme: light dark;
+  --ink: #1b1a17;
+  --paper: #f3eee1;
+  --card: #ffffff;
+  --line: #e2dbc9;
+  --sub: #6d685c;
+  --faint: #b5ae9d;
+  --onacc: #f6f1e7;
+  --acc: #7a3bd9;
+  --shadow: #1b1a17;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f0ead9;
+    --paper: #232019;
+    --card: #2e2a21;
+    --line: #3a352a;
+    --sub: #a89f8d;
+    --faint: #6f6857;
+    --acc: #9a63ec;
+    --shadow: #0e0d0b;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font: 400 17px/1.6 Archivo, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 720px; margin: 0 auto; padding: 40px 16px 72px; }
+
+.black, h1, h2, .kicker, .btn, .stamp, .crumb a {
+  font-family: "Archivo Black", Archivo, sans-serif;
+  font-weight: 400;
+}
+.kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sub);
+}
+
+/* Brand header */
+.brand { display: flex; align-items: center; gap: 18px; margin: 0 0 28px; }
+.brand img {
+  width: 72px; height: 72px;
+  border-radius: 18px;
+  border: 2.5px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--shadow);
+  transform: rotate(-4deg);
+  flex: none;
+}
+.brand .name {
+  margin: 0;
+  font-family: "Archivo Black", Archivo, sans-serif;
+  font-size: clamp(1.9rem, 7vw, 2.6rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.brand a { color: inherit; text-decoration: none; }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 2.5px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--shadow);
+  padding: 24px 22px;
+  margin: 0 0 22px;
+}
+.card > :first-child { margin-top: 0; }
+.card > :last-child { margin-bottom: 0; }
+
+h1 {
+  font-size: clamp(1.5rem, 5.5vw, 2rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin: 10px 0 8px;
+}
+h2 {
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 2em 0 0.5em;
+  padding-top: 1.4em;
+  border-top: 2px dashed var(--line);
+}
+h2::before { content: "◆ "; color: var(--acc); }
+p, li { margin: 0 0 0.9em; }
+ul { padding-left: 1.2em; }
+li::marker { color: var(--acc); }
+strong { font-weight: 700; }
+a { color: var(--acc); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+code {
+  font: 0.85em Menlo, ui-monospace, monospace;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  padding: 1px 5px;
+}
+
+.stamp {
+  display: inline-block;
+  background: var(--acc);
+  color: var(--onacc);
+  border: 2.5px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--shadow);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  transform: rotate(-2deg);
+}
+
+.lede { font-size: 1.15rem; line-height: 1.5; margin: 0 0 1.2em; }
+
+/* Buttons */
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+.btn {
+  display: inline-block;
+  padding: 13px 20px;
+  border: 2.5px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--shadow);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+.btn.primary { background: var(--acc); color: var(--onacc); }
+.btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--shadow); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--shadow); }
+
+.features { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.features li { margin: 0; padding-left: 28px; position: relative; }
+.features li::before {
+  content: ""; position: absolute; left: 0; top: 0.45em;
+  width: 12px; height: 12px;
+  background: var(--acc);
+  border: 2px solid var(--ink);
+  transform: rotate(45deg);
+}
+
+.crumb { margin: 0 0 18px; }
+.crumb a {
+  color: var(--sub);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.crumb a:hover { color: var(--ink); }
+
+footer {
+  margin-top: 36px;
+  text-align: center;
+  color: var(--sub);
+  font-size: 0.85rem;
+}
+footer a { color: var(--sub); }
+
+@media (max-width: 480px) {
+  main { padding-top: 28px; }
+  .card { padding: 20px 16px; box-shadow: 4px 4px 0 var(--shadow); }
+  .brand img { width: 60px; height: 60px; border-radius: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
